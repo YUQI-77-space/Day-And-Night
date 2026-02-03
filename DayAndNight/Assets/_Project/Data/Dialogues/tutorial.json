@@ -1,0 +1,158 @@
+{
+  "version": "1.0",
+  "name": "新手引导对话",
+  "description": "玩家进入游戏时的初始引导对话",
+  "startNode": "start",
+  "author": "DayAndNight Team",
+  "createdAt": "2026-02-03 10:00:00",
+  "updatedAt": "2026-02-03 10:00:00",
+  "tags": ["新手", "引导", "教程"],
+  
+  "nodes": [
+    {
+      "id": "start",
+      "speaker": "神秘声音",
+      "text": "欢迎来到晨光镇，旅行者。你是第一次来这个地方吧？",
+      "portrait": "",
+      "nextNode": "first_question",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "first_question",
+      "speaker": "神秘声音",
+      "text": "在这个世界里，白天和黑夜会不断交替。每个时间段都有独特的机遇和挑战。准备好了吗？",
+      "portrait": "",
+      "nextNode": "",
+      "options": [
+        {
+          "text": "我准备好了！",
+          "targetNode": "explain_day",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        },
+        {
+          "text": "先让我看看周围",
+          "targetNode": "look_around",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        }
+      ],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "explain_day",
+      "speaker": "神秘声音",
+      "text": "很好！在白天，你可以采集资源、种植作物、与村民交易。镇上的商店只在白天营业。",
+      "portrait": "",
+      "nextNode": "explain_night",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "explain_night",
+      "speaker": "神秘声音",
+      "text": "到了夜晚，月光笼罩大地。一些神秘的生物会出现，但也有独特的资源等待发掘。记住，时间不等人！",
+      "portrait": "",
+      "nextNode": "final_tip",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "look_around",
+      "speaker": "神秘声音",
+      "text": "谨慎是好事。你现在所在的位置是晨光镇的入口。前方是繁华的市中心，左边是冒险者公会，右边则是寂静的森林。",
+      "portrait": "",
+      "nextNode": "look_question",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "look_question",
+      "speaker": "神秘声音",
+      "text": "你想去哪里？",
+      "portrait": "",
+      "nextNode": "",
+      "options": [
+        {
+          "text": "去市中心看看",
+          "targetNode": "explain_day",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        },
+        {
+          "text": "冒险者公会",
+          "targetNode": "guild_intro",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        },
+        {
+          "text": "森林太危险了，我还是去市中心吧",
+          "targetNode": "explain_day",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        }
+      ],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "guild_intro",
+      "speaker": "神秘声音",
+      "text": "冒险者公会接受各种委托任务。完成任务可以获得金币和声望。但要注意，夜间任务通常更危险，奖励也更丰厚。",
+      "portrait": "",
+      "nextNode": "explain_night",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "final_tip",
+      "speaker": "神秘声音",
+      "text": "最后提醒你一句：善用你的时间。白天做好规划，夜晚谨慎行动。祝你在晨光镇有个美好的旅程！后会无期！",
+      "portrait": "",
+      "nextNode": "-1",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": "",
+      "onExitEvent": "TutorialComplete"
+    }
+  ]
+}

@@ -1,0 +1,415 @@
+{
+  "version": "1.0",
+  "name": "铁匠铺对话",
+  "description": "玩家与镇上新搬来的铁匠NPC的初次对话",
+  "startNode": "start",
+  "author": "DayAndNight Team",
+  "createdAt": "2026-02-03 10:00:00",
+  "updatedAt": "2026-02-03 10:00:00",
+  "tags": ["NPC", "铁匠", "商店"],
+  
+  "nodes": [
+    {
+      "id": "start",
+      "speaker": "老铁匠",
+      "text": "哟，年轻人！欢迎光临老汤姆的铁匠铺。新面孔啊，从外地来的？",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "first_response",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "first_response",
+      "speaker": "老铁匠",
+      "text": "我在这条街上打了三十年的铁，见过形形色色的人。你是来买武器的，还是来卖材料的？",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "",
+      "options": [
+        {
+          "text": "我想买一把剑",
+          "targetNode": "buy_sword",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        },
+        {
+          "text": "有什么任务吗？",
+          "targetNode": "quest_info",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        },
+        {
+          "text": "我只是随便看看",
+          "targetNode": "browse",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        }
+      ],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "buy_sword",
+      "speaker": "老铁匠",
+      "text": "剑是吧？我这有几种：生铁剑50金币，钢剑120，精钢剑300。看你想要哪种？",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "",
+      "options": [
+        {
+          "text": "生铁剑（50金币）",
+          "targetNode": "confirm_purchase",
+          "condition": "$gold >= 50",
+          "cost": 50,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        },
+        {
+          "text": "钢剑（120金币）",
+          "targetNode": "confirm_purchase",
+          "condition": "$gold >= 120",
+          "cost": 120,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        },
+        {
+          "text": "精钢剑（300金币）",
+          "targetNode": "confirm_purchase",
+          "condition": "$gold >= 300",
+          "cost": 300,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        },
+        {
+          "text": "太贵了，我买不起",
+          "targetNode": "too_expensive",
+          "condition": "$gold < 50",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        },
+        {
+          "text": "先看看其他东西",
+          "targetNode": "other_items",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        }
+      ],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "confirm_purchase",
+      "speaker": "老铁匠",
+      "text": "好眼光！这把剑可是我亲手打的，用上好材料。保证锋利耐用！",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "thank_you",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": "",
+      "onEnterEvent": "GiveWeapon:IronSword"
+    },
+    
+    {
+      "id": "thank_you",
+      "speaker": "老铁匠",
+      "text": "以后有什么需要再来啊！我这还有盔甲、盾牌，应有尽有。",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "-1",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "too_expensive",
+      "speaker": "老铁匠",
+      "text": "哈哈，没钱很正常！我年轻时也穷得叮当响。这样吧，你帮我个忙，我送你点东西。",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "quest_offer",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "quest_offer",
+      "speaker": "老铁匠",
+      "text": "镇子东边的森林里有些野兽出没。你去帮我猎5只野狼，带回它们的皮，我送你一把生铁剑作为报酬。怎么样？",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "",
+      "options": [
+        {
+          "text": "没问题，包在我身上！",
+          "targetNode": "accept_quest",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "AddQuest:WolfHunting",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        },
+        {
+          "text": "野狼太危险了，我考虑一下",
+          "targetNode": "think_about_it",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        }
+      ],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "accept_quest",
+      "speaker": "老铁匠",
+      "text": "好！这是狼皮袋，装战利品用的。路上小心，太阳落山前最好回来。",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "quest_reminder",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": "",
+      "onEnterEvent": "GiveItem:WolfSkinBag"
+    },
+    
+    {
+      "id": "quest_reminder",
+      "speaker": "老铁匠",
+      "text": "记住，要5张狼皮哦！我会检查的。去吧，祝你好运！",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "-1",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "quest_info",
+      "speaker": "老铁匠",
+      "text": "任务啊？我这确实有些杂事需要人帮忙。比如镇外的野兽、镇民丢失的东西……对了，帮我收集狼皮的事你有兴趣吗？",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "",
+      "options": [
+        {
+          "text": "收集狼皮？我感兴趣",
+          "targetNode": "quest_offer",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        },
+        {
+          "text": "还有其他任务吗？",
+          "targetNode": "other_quests",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        },
+        {
+          "text": "先看看商品",
+          "targetNode": "buy_sword",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        }
+      ],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "other_quests",
+      "speaker": "老铁匠",
+      "text": "我这边主要是收集材料。如果你擅长战斗，可以去冒险者公会，那边的任务奖励更丰厚。",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "other_quests2",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "other_quests2",
+      "speaker": "老铁匠",
+      "text": "如果你想帮我，就考虑考虑狼皮的任务吧。报酬是一把生铁剑，对新手来说很不错了。",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "-1",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "think_about_it",
+      "speaker": "老铁匠",
+      "text": "谨慎是好事。决定好了再来找我。铁匠铺随时欢迎你！",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "-1",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "browse",
+      "speaker": "老铁匠",
+      "text": "好啊，随便看！我这的东西都是真材实料，看上什么叫我。对了，如果你缺钱，可以帮我干活换东西。",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "browse2",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "browse2",
+      "speaker": "老铁匠",
+      "text": "镇外的森林里有不少野兽，它们的皮毛值点钱。你可以帮我带回来，我用武器跟你换。",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "-1",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "other_items",
+      "speaker": "老铁匠",
+      "text": "我这还有盾牌、头盔、护甲，你要不要看看？或者你有材料想卖给我？",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "",
+      "options": [
+        {
+          "text": "有什么盾牌？",
+          "targetNode": "show_shields",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        },
+        {
+          "text": "我想卖点材料",
+          "targetNode": "sell_materials",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        },
+        {
+          "text": "下次再说",
+          "targetNode": "goodbye",
+          "condition": "",
+          "cost": 0,
+          "requireItem": "",
+          "onSelectEvent": "",
+          "hidden": false,
+          "disabled": false,
+          "disableReason": ""
+        }
+      ],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "show_shields",
+      "speaker": "老铁匠",
+      "text": "盾牌嘛……木盾80，钢盾200，铁盾400。看你需要哪种？",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "buy_sword",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "sell_materials",
+      "speaker": "老铁匠",
+      "text": "材料啊？我主要收兽皮和矿石。狼皮一张20，熊皮50，铁矿石一块10。价格公道！",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "sell2",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "sell2",
+      "speaker": "老铁匠",
+      "text": "把东西放柜台上就行，我会给你算钱的。",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "-1",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    },
+    
+    {
+      "id": "goodbye",
+      "speaker": "老铁匠",
+      "text": "好啊，随时再来！记住，老汤姆的货，质量有保证！",
+      "portrait": "Portraits/Blacksmith_Old",
+      "nextNode": "-1",
+      "options": [],
+      "playRandomVoice": false,
+      "soundEffect": ""
+    }
+  ]
+}
