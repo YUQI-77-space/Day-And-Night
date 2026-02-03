@@ -107,14 +107,14 @@
 2. **01_CoreGameplay.md** - 核心玩法循环
 3. **02_AttributeSystem.md** - 六维属性系统设计
 4. **03_CombatSystem.md** - 战斗系统设计
-5. **04_TimeAndProgression.md** - 时间系统与进度管理
-6. **05_NPCAndDialogue.md** - NPC系统与对话设计
-7. **06_QuestSystem.md** - 任务系统设计
-8. **07_WorldDesign.md** - 世界观与场景设计
-9. **08_TechnicalDesign.md** - 技术架构设计
-10. **09_ArtStyle.md** - 美术风格指南
-11. **10_AudioDesign.md** - 音频设计
-12. **11_DataStructure.md** - 数据结构与配置文件
+5. **04_TimeAndScheduleSystem.md** - 时间与日程系统设计
+6. **05_NPCAndQuestSystem.md** - NPC与任务系统设计
+7. **06_WorldAndSceneDesign.md** - 世界与场景设计
+8. **07_TechnicalArchitecture.md** - 技术架构设计
+9. **08_ArtStyleGuide.md** - 美术风格指南
+10. **09_AudioDesign.md** - 音频设计
+11. **10_DataStructure.md** - 数据结构与配置文件
+12. **11_项目工程准备.md** - 项目工程搭建指南
 
 ---
 
