@@ -169,7 +169,10 @@ namespace DayAndNight.Dialogue
     /// </summary>
     public class RuntimeDialogueState
     {
-        /// <summary>当前对话文件</summary        public DialogueFile dialogueFile;
+        /// <summary>
+        /// 当前对话文件
+        /// </summary>
+        public DialogueFile dialogueFile;
         
         /// <summary>当前节点ID</summary>
         public string currentNodeId;
@@ -226,7 +229,10 @@ namespace DayAndNight.Dialogue
         /// <summary>选中的选项</summary>
         public DialogueOption SelectedOption { get; set; }
         
-        /// <summary>是否是对话开始</summary        public bool IsStarting { get; set; }
+        /// <summary>
+        /// 是否是对话开始
+        /// </summary>
+        public bool IsStarting { get; set; }
         
         /// <summary>是否是对话结束</summary>
         public bool IsEnding { get; set; }

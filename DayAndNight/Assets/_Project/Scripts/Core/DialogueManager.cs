@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
-using DayAndNight.Utilities;
+using DayAndNight.Dialogue;
 
 /// <summary>
 /// 对话管理器 - 负责加载和管理游戏对话

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
@@ -25,7 +26,7 @@ public class GameDebugWindow : EditorWindow
     #region 日志数据
     private List<LogEntry> _logs = new List<LogEntry>();
     private Vector2 _scrollPosition;
-    private LogLevel _filterLevel = LogLevel.Info;
+    private GameDebug.LogLevel _filterLevel = GameDebug.LogLevel.Info;
     private string _searchText = "";
     private bool _autoScroll = true;
     private int _errorCount = 0;
@@ -113,7 +114,7 @@ public class GameDebugWindow : EditorWindow
         
         // 过滤级别
         GUILayout.Label("过滤:", GUILayout.Width(40));
-        LogLevel newLevel = (LogLevel)EditorGUILayout.EnumPopup(_filterLevel, EditorStyles.toolbarPopup, GUILayout.Width(80));
+        GameDebug.LogLevel newLevel = (GameDebug.LogLevel)EditorGUILayout.EnumPopup(_filterLevel, EditorStyles.toolbarPopup, GUILayout.Width(80));
         if (newLevel != _filterLevel)
         {
             _filterLevel = newLevel;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using DayAndNight.Utilities;
+using DayAndNight.Dialogue;
 
 /// <summary>
 /// 对话 UI 显示组件 - 管理对话的图形界面显示
@@ -77,7 +77,8 @@ public class DialogueUI : MonoBehaviour
     
     /// <summary>
     /// 完整文本缓存
-    /// </summary    private string _fullText;
+    /// </summary>
+    private string _fullText;
     
     /// <summary>
     /// 对话历史记录

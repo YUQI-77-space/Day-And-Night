@@ -117,8 +117,8 @@ public static class GameDebug
             
             _fileLoggingInitialized = true;
             
-            Log("文件日志已初始化", LogLevel.Info);
-            Log($"日志文件路径: {_logFilePath}", LogLevel.Info);
+            LogFormatted("文件日志已初始化", LogLevel.Info);
+            LogFormatted("日志文件路径: {0}", _logFilePath);
         }
         catch (Exception ex)
         {
