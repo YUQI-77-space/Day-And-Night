@@ -38,11 +38,6 @@ namespace DayAndNight.Core
         /// </summary>
         private Queue<string> _eventHistory = new Queue<string>();
 
-        /// <summary>
-        /// 是否已初始化
-        /// </summary>
-        private bool _isInitialized = false;
-
         #endregion
 
         #region 属性
@@ -65,7 +60,6 @@ namespace DayAndNight.Core
         /// </summary>
         protected override void OnInitialize()
         {
-            _isInitialized = true;
             Debug.Log("[EventManager] 事件管理器已初始化");
         }
 
